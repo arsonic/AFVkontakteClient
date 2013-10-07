@@ -4,5 +4,5 @@ pod 'AFNetworking'
 
 target :AFVkontakteClientTests, :exclusive => true do
    pod 'OHHTTPStubs' 
-   pod 'Kiwi'
+   pod 'Kiwi/XCTest'
 end
