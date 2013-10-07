@@ -22,6 +22,8 @@
 		2DAD8C1318033EF500378931 /* AFVkontakteClientTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DAD8C1218033EF500378931 /* AFVkontakteClientTests.m */; };
 		4B91C38CBC394BE8B4EFEFDF /* libPods-AFVkontakteClientTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 024B4BA2DF254F2DBE84679F /* libPods-AFVkontakteClientTests.a */; };
 		FA28509618034676001D0BBB /* AFVkontakteClient.m in Sources */ = {isa = PBXBuildFile; fileRef = FA28509518034676001D0BBB /* AFVkontakteClient.m */; };
+		2DAD8C1318033EF500378931 /* AFVkontakteClientSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DAD8C1218033EF500378931 /* AFVkontakteClientSpec.m */; };
+		4B91C38CBC394BE8B4EFEFDF /* libPods-AFVkontakteClientTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 024B4BA2DF254F2DBE84679F /* libPods-AFVkontakteClientTests.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +59,10 @@
 		CD61CF5EA6AA4DC185D648D2 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		FA28509418034676001D0BBB /* AFVkontakteClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFVkontakteClient.h; sourceTree = "<group>"; };
 		FA28509518034676001D0BBB /* AFVkontakteClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFVkontakteClient.m; sourceTree = "<group>"; };
+		2DAD8C1218033EF500378931 /* AFVkontakteClientSpec.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AFVkontakteClientSpec.m; sourceTree = "<group>"; };
+		77A634F433C44EAB82B28459 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		CC0D7285562C4933AECD490B /* Pods-AFVkontakteClientTests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AFVkontakteClientTests.xcconfig"; path = "Pods/Pods-AFVkontakteClientTests.xcconfig"; sourceTree = "<group>"; };
+		CD61CF5EA6AA4DC185D648D2 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,6 +152,7 @@
 			isa = PBXGroup;
 			children = (
 				2DAD8C1218033EF500378931 /* AFVkontakteClientTests.m */,
+				2DAD8C1218033EF500378931 /* AFVkontakteClientSpec.m */,
 				2DAD8C0D18033EF500378931 /* Supporting Files */,
 			);
 			path = AFVkontakteClientTests;
@@ -342,6 +349,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2DAD8C1318033EF500378931 /* AFVkontakteClientTests.m in Sources */,
+				2DAD8C1318033EF500378931 /* AFVkontakteClientSpec.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
