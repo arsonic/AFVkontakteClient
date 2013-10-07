@@ -1,0 +1,4 @@
+AFVkontakteClient
+=================
+
+VK Library
