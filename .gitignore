@@ -1,4 +1,7 @@
 # Xcode
+build/*
+Pods/*
+*.lock
 .DS_Store
 build/
 *.pbxuser
