@@ -44,12 +44,42 @@
     [super viewDidLoad];
 	
     self.title = NSLocalizedString(@"Login", @"AFVkontakteLoginViewController title");
+    
+    [self addCloseButton];
+    [self addWebView];
+    
+    
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - Autorization
+
+- (void)loadLoginPage{
+    
+    [self.webView loadRequest:[NSURLRequest requestWithURL: self.loginPageURL]];
+}
+
+- (void)webViewDidFinishLoadWithResponseString:(NSString *)webViewResponseString{
+
+    AFVkontakteMethodNotImplemented();
+}
+
+#pragma mark - UIWebViewDelegate
+
+- (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error{
+    
+    AFVkontakteMethodNotImplemented();
+}
+
+- (void)webViewDidFinishLoad:(UIWebView *)webView{
+    
+    NSString *webViewResponseString = webView.request.URL.absoluteString;
+    [self webViewDidFinishLoadWithResponseString: webViewResponseString];
 }
 
 #pragma mark - UI
