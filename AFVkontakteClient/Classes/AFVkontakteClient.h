@@ -8,6 +8,9 @@
 
 #import <AFNetworking/AFHTTPRequestOperationManager.h>
 
+typedef void(^AFVkontakteAuthBlock)(NSString *authToken, NSString *userID, NSDate *expirationDate, NSError *error);
+
 @interface AFVkontakteClient : AFHTTPRequestOperationManager
+
 
 @end
