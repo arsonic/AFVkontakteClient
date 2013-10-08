@@ -29,8 +29,8 @@
     return self;
 }
 
-- (id)initWithLoginPageURL:(NSURL *)loginPageURL withAuthorizationCallback:(AFVkontakteAuthBlock)authorizationCallback{
-    
+- (id)initWithLoginPageURL:(NSURL *)loginPageURL withAuthorizationCallback:(AFVkontakteAuthBlock)authorizationCallback
+{
     if(self = [super init]){
         self.loginPageURL = loginPageURL;
         self.authorizationCallback = authorizationCallback;
@@ -47,8 +47,6 @@
     
     [self addCloseButton];
     [self addWebView];
-    
-    
 }
 
 - (void)didReceiveMemoryWarning
@@ -57,69 +55,70 @@
     // Dispose of any resources that can be recreated.
 }
 
-#pragma mark - Autorization
+#pragma mark - Authorization
 
-- (void)loadLoginPage{
-    
+- (void)loadLoginPage
+{
     [self.webView loadRequest:[NSURLRequest requestWithURL: self.loginPageURL]];
 }
 
-- (void)webViewDidFinishLoadWithResponseString:(NSString *)webViewResponseString{
-
+- (void)webViewDidFinishLoadWithResponseString:(NSString *)webViewResponseString
+{
     AFVkontakteMethodNotImplemented();
 }
 
 #pragma mark - UIWebViewDelegate
 
-- (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error{
-    
+- (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error
+{
     AFVkontakteMethodNotImplemented();
 }
 
-- (void)webViewDidFinishLoad:(UIWebView *)webView{
-    
+- (void)webViewDidFinishLoad:(UIWebView *)webView
+{
     NSString *webViewResponseString = webView.request.URL.absoluteString;
     [self webViewDidFinishLoadWithResponseString: webViewResponseString];
 }
 
 #pragma mark - UI
 
-- (void)addWebView{
-    
-    self.webView = [[UIWebView alloc] initWithFrame: self.view.bounds];
+- (void)addWebView
+{
+    self.webView = [[UIWebView alloc] initWithFrame:self.view.bounds];
     self.webView.delegate = self;
     [self.view addSubview: self.webView];
 }
 
-- (void)addCloseButton{
-    
+- (void)addCloseButton
+{
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Close", @"AFVkontakteLoginViewController close button title")
                                                                              style:UIBarButtonSystemItemCancel
-                                                                            target:self action:@selector(close:)];
+                                                                            target:self
+                                                                            action:@selector(close:)];
 }
 
 #pragma mark - Actions
 
-- (void)close:(UIBarButtonItem *)button{
-    
+- (void)close:(UIBarButtonItem *)button
+{
     AFVkontakteMethodNotImplemented();
 }
 
 #pragma mark - Interface
 
 + (instancetype)showWithLoginPageURL:(NSURL *)loginPageURL
-           withAuthorizationCallback:(AFVkontakteAuthBlock)authorizationCallback{
-    
+           withAuthorizationCallback:(AFVkontakteAuthBlock)authorizationCallback
+{
     NSParameterAssert(loginPageURL);
     NSParameterAssert(authorizationCallback);
     
-    AFVkontakteLoginViewController *vc = [[AFVkontakteLoginViewController alloc] initWithLoginPageURL:loginPageURL withAuthorizationCallback:authorizationCallback];
-    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController: vc];
+    AFVkontakteLoginViewController *authorizationController = [[AFVkontakteLoginViewController alloc] initWithLoginPageURL:loginPageURL withAuthorizationCallback:authorizationCallback];
+    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController: authorizationController];
     UIWindow *keyWindow = [UIApplication sharedApplication].keyWindow;
     UIViewController *presenterViewController = [keyWindow.rootViewController topViewController];
     [presenterViewController presentViewController:navigationController animated:YES completion:nil];
     
-    return vc;
+    return authorizationController;
 }
 
 @end
