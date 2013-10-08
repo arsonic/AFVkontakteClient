@@ -10,20 +10,20 @@
 
 @implementation UIViewController (AFVkontakteClientAdditions)
 
-+ (UIViewController *)topViewController:(UIViewController *)rootViewController{
+- (UIViewController *)topViewController{
     
-    if (rootViewController.presentedViewController == nil) {
-        return rootViewController;
+    if (self.presentedViewController == nil) {
+        return self;
     }
     
-    if ([rootViewController.presentedViewController isMemberOfClass:[UINavigationController class]]) {
-        UINavigationController *navigationController = (UINavigationController *)rootViewController.presentedViewController;
+    if ([self.presentedViewController isMemberOfClass:[UINavigationController class]]) {
+        UINavigationController *navigationController = (UINavigationController *)self.presentedViewController;
         UIViewController *lastViewController = [[navigationController viewControllers] lastObject];
-        return [self topViewController:lastViewController];
+        return [lastViewController topViewController];
     }
     
-    UIViewController *presentedViewController = (UIViewController *)rootViewController.presentedViewController;
-    return [self topViewController:presentedViewController];
+    UIViewController *presentedViewController = (UIViewController *)self.presentedViewController;
+    return [presentedViewController topViewController];
 }
 
 @end

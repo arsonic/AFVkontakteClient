@@ -8,9 +8,13 @@
 
 #import "AFVkontakteLoginViewController.h"
 
+#import "UIViewController+AFVkontakteClientAdditions.h"
+
 @interface AFVkontakteLoginViewController ()<UIWebViewDelegate>
 
 @property (nonatomic, strong) UIWebView *webView;
+@property (nonatomic, copy) AFVkontakteAuthBlock authorizationCallback;
+@property (nonatomic, strong) NSURL *loginPageURL;
 
 @end
 
@@ -22,6 +26,16 @@
     if (self) {
         // Custom initialization
     }
+    return self;
+}
+
+- (id)initWithLoginPageURL:(NSURL *)loginPageURL withAuthorizationCallback:(AFVkontakteAuthBlock)authorizationCallback{
+    
+    if(self = [super init]){
+        self.loginPageURL = loginPageURL;
+        self.authorizationCallback = authorizationCallback;
+    }
+    
     return self;
 }
 
@@ -63,12 +77,19 @@
 
 #pragma mark - Interface
 
-+ (void)showWithAuthorizationURL:(NSURL *)loginURL withAuthorizationCallback:(AFVkontakteAuthBlock)authorizationCallback{
++ (instancetype)showWithLoginPageURL:(NSURL *)loginPageURL
+           withAuthorizationCallback:(AFVkontakteAuthBlock)authorizationCallback{
     
-    NSParameterAssert(loginURL);
+    NSParameterAssert(loginPageURL);
     NSParameterAssert(authorizationCallback);
     
+    AFVkontakteLoginViewController *vc = [[AFVkontakteLoginViewController alloc] initWithLoginPageURL:loginPageURL withAuthorizationCallback:authorizationCallback];
+    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController: vc];
+    UIWindow *keyWindow = [UIApplication sharedApplication].keyWindow;
+    UIViewController *presenterViewController = [keyWindow.rootViewController topViewController];
+    [presenterViewController presentViewController:navigationController animated:YES completion:nil];
     
+    return vc;
 }
 
 @end

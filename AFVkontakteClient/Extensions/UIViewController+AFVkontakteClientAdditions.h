@@ -10,10 +10,9 @@
 
 @interface UIViewController (AFVkontakteClientAdditions)
 
-/*! Method to find top visible view controller in other view controllers hierarchy
- \param rootViewController A UIViewController object in which hierarchy we want to get visible view controller
- \return top visible view controller in rootViewController hierarchy
+/*! Method to find top visible view controller in sender view controller hierarchy
+ * \return Top visible view controller in sender view controller hierarchy hierarchy
  */
-+ (UIViewController *)topViewController:(UIViewController *)rootViewController;
+- (UIViewController *)topViewController;
 
 @end
