@@ -63,6 +63,12 @@
 
 #pragma mark - Interface
 
-+ (void)showWithLoginURL:(NSURL *)loginURL withAuthorizationCallback:(AF)
++ (void)showWithAuthorizationURL:(NSURL *)loginURL withAuthorizationCallback:(AFVkontakteAuthBlock)authorizationCallback{
+    
+    NSParameterAssert(loginURL);
+    NSParameterAssert(authorizationCallback);
+    
+    
+}
 
 @end

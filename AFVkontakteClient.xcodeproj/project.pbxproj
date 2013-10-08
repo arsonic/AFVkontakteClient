@@ -23,6 +23,7 @@
 		4B91C38CBC394BE8B4EFEFDF /* libPods-AFVkontakteClientTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 024B4BA2DF254F2DBE84679F /* libPods-AFVkontakteClientTests.a */; };
 		FA28509618034676001D0BBB /* AFVkontakteClient.m in Sources */ = {isa = PBXBuildFile; fileRef = FA28509518034676001D0BBB /* AFVkontakteClient.m */; };
 		FA28509A18049496001D0BBB /* AFVkontakteLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA28509918049496001D0BBB /* AFVkontakteLoginViewController.m */; };
+		FA28509E18049FE0001D0BBB /* UIViewController+AFVkontakteClientAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = FA28509D18049FE0001D0BBB /* UIViewController+AFVkontakteClientAdditions.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +61,8 @@
 		FA28509518034676001D0BBB /* AFVkontakteClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFVkontakteClient.m; sourceTree = "<group>"; };
 		FA28509818049496001D0BBB /* AFVkontakteLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFVkontakteLoginViewController.h; sourceTree = "<group>"; };
 		FA28509918049496001D0BBB /* AFVkontakteLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFVkontakteLoginViewController.m; sourceTree = "<group>"; };
+		FA28509C18049FE0001D0BBB /* UIViewController+AFVkontakteClientAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+AFVkontakteClientAdditions.h"; sourceTree = "<group>"; };
+		FA28509D18049FE0001D0BBB /* UIViewController+AFVkontakteClientAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+AFVkontakteClientAdditions.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,6 +128,7 @@
 		2DAD8BF318033EF500378931 /* AFVkontakteClient */ = {
 			isa = PBXGroup;
 			children = (
+				FA28509B18049EBB001D0BBB /* Extensions */,
 				FA28509318034640001D0BBB /* Classes */,
 				2DAD8BFC18033EF500378931 /* AFVAppDelegate.h */,
 				2DAD8BFD18033EF500378931 /* AFVAppDelegate.m */,
@@ -181,6 +185,15 @@
 				FA28509918049496001D0BBB /* AFVkontakteLoginViewController.m */,
 			);
 			path = Authorization;
+			sourceTree = "<group>";
+		};
+		FA28509B18049EBB001D0BBB /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				FA28509C18049FE0001D0BBB /* UIViewController+AFVkontakteClientAdditions.h */,
+				FA28509D18049FE0001D0BBB /* UIViewController+AFVkontakteClientAdditions.m */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -348,6 +361,7 @@
 				FA28509618034676001D0BBB /* AFVkontakteClient.m in Sources */,
 				2DAD8BFE18033EF500378931 /* AFVAppDelegate.m in Sources */,
 				FA28509A18049496001D0BBB /* AFVkontakteLoginViewController.m in Sources */,
+				FA28509E18049FE0001D0BBB /* UIViewController+AFVkontakteClientAdditions.m in Sources */,
 				2DAD8BFA18033EF500378931 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
