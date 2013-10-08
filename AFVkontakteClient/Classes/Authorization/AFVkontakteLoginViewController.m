@@ -61,4 +61,8 @@
     AFVkontakteMethodNotImplemented();
 }
 
+#pragma mark - Interface
+
++ (void)showWithLoginURL:(NSURL *)loginURL withAuthorizationCallback:(AF)
+
 @end

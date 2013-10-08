@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+typedef void(^AFVkontakteAuthBlock)(NSString *authToken, NSString *authorizedUserVkontakteID, NSDate *authTokenExpirationDate, NSError *error);
+
 @interface AFVkontakteLoginViewController : UIViewController
 
 /*
