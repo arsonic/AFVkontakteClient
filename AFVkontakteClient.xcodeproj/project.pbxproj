@@ -19,6 +19,7 @@
 		2DAD8C0818033EF500378931 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DAD8BED18033EF500378931 /* Foundation.framework */; };
 		2DAD8C0918033EF500378931 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DAD8BF118033EF500378931 /* UIKit.framework */; };
 		2DAD8C1118033EF500378931 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2DAD8C0F18033EF500378931 /* InfoPlist.strings */; };
+		2DB7BB501804BB2000C592B7 /* AFVkontakteClientSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DB7BB4F1804BB2000C592B7 /* AFVkontakteClientSpec.m */; };
 		4B91C38CBC394BE8B4EFEFDF /* libPods-AFVkontakteClientTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 024B4BA2DF254F2DBE84679F /* libPods-AFVkontakteClientTests.a */; };
 		FA28509618034676001D0BBB /* AFVkontakteClient.m in Sources */ = {isa = PBXBuildFile; fileRef = FA28509518034676001D0BBB /* AFVkontakteClient.m */; };
 		FA28509A18049496001D0BBB /* AFVkontakteLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA28509918049496001D0BBB /* AFVkontakteLoginViewController.m */; };
@@ -26,7 +27,6 @@
 		FA2850A11804A79E001D0BBB /* NSRegularExpression+AFVkontakteClientAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = FA2850A01804A79E001D0BBB /* NSRegularExpression+AFVkontakteClientAdditions.m */; };
 		FA2850A31804A861001D0BBB /* NSStringExpressionAdditionsSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = FA2850A21804A861001D0BBB /* NSStringExpressionAdditionsSpec.m */; };
 		FA2850A61804A9F4001D0BBB /* NSString+AFVkontakteClientAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = FA2850A51804A9F4001D0BBB /* NSString+AFVkontakteClientAdditions.m */; };
-		FA2850A81804ACC7001D0BBB /* AFVkontakteClientSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = FA2850A71804ACC7001D0BBB /* AFVkontakteClientSpec.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +56,7 @@
 		2DAD8C0618033EF500378931 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		2DAD8C0E18033EF500378931 /* AFVkontakteClientTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "AFVkontakteClientTests-Info.plist"; sourceTree = "<group>"; };
 		2DAD8C1018033EF500378931 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		2DB7BB4F1804BB2000C592B7 /* AFVkontakteClientSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFVkontakteClientSpec.m; sourceTree = "<group>"; };
 		77A634F433C44EAB82B28459 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC0D7285562C4933AECD490B /* Pods-AFVkontakteClientTests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AFVkontakteClientTests.xcconfig"; path = "Pods/Pods-AFVkontakteClientTests.xcconfig"; sourceTree = "<group>"; };
 		CD61CF5EA6AA4DC185D648D2 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
@@ -70,7 +71,6 @@
 		FA2850A21804A861001D0BBB /* NSStringExpressionAdditionsSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSStringExpressionAdditionsSpec.m; sourceTree = "<group>"; };
 		FA2850A41804A9F4001D0BBB /* NSString+AFVkontakteClientAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+AFVkontakteClientAdditions.h"; sourceTree = "<group>"; };
 		FA2850A51804A9F4001D0BBB /* NSString+AFVkontakteClientAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+AFVkontakteClientAdditions.m"; sourceTree = "<group>"; };
-		FA2850A71804ACC7001D0BBB /* AFVkontakteClientSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFVkontakteClientSpec.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -149,7 +149,6 @@
 		2DAD8BF418033EF500378931 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				FA2850A71804ACC7001D0BBB /* AFVkontakteClientSpec.m */,
 				2DAD8BF518033EF500378931 /* AFVkontakteClient-Info.plist */,
 				2DAD8BF618033EF500378931 /* InfoPlist.strings */,
 				2DAD8BF918033EF500378931 /* main.m */,
@@ -163,6 +162,7 @@
 			children = (
 				2DAD8C0D18033EF500378931 /* Supporting Files */,
 				FA2850A21804A861001D0BBB /* NSStringExpressionAdditionsSpec.m */,
+				2DB7BB4F1804BB2000C592B7 /* AFVkontakteClientSpec.m */,
 			);
 			path = AFVkontakteClientTests;
 			sourceTree = "<group>";
@@ -384,8 +384,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FA2850A81804ACC7001D0BBB /* AFVkontakteClientSpec.m in Sources */,
 				FA2850A31804A861001D0BBB /* NSStringExpressionAdditionsSpec.m in Sources */,
+				2DB7BB501804BB2000C592B7 /* AFVkontakteClientSpec.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

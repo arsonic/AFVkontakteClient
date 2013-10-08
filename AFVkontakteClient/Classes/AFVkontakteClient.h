@@ -10,5 +10,6 @@
 
 @interface AFVkontakteClient : AFHTTPRequestOperationManager
 
++ (instancetype)sharedInstance;
 
 @end

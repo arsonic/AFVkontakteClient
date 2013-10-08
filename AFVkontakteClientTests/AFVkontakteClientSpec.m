@@ -1,19 +1,26 @@
 //
 //  AFVkontakteClientSpec.m
-//  AFVkontakteClientSpec
+//  AFVkontakteClient
 //
-//  Created by Arseniy Vershinin on 10/7/13.
+//  Created by Arseniy Vershinin on 10/9/13.
 //
 //
 
 #import <Kiwi/Kiwi.h>
 
+#import "AFVkontakteClient.h"
+
 SPEC_BEGIN(AFVkontakteClientSpec)
 
 describe(@"AFVkontakteClient", ^{
-   
+    __block AFVkontakteClient *client = nil;
+    
+    beforeEach(^{
+        client = [AFVkontakteClient new];
+    });
+    
     it(@"should be initialized", ^{
-        [[theValue(2+2) should] equal:theValue(4)];
+        [[client.baseURL.absoluteString should] equal:@"https://api.vk.com/method/"];
     });
     
 });
