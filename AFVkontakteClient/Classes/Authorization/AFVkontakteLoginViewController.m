@@ -9,6 +9,12 @@
 #import "AFVkontakteLoginViewController.h"
 
 #import "UIViewController+AFVkontakteClientAdditions.h"
+#import "NSString+AFVkontakteClientAdditions.h"
+
+static NSString *const kVKAutorizeResponseAuthTokenParameterKey = @"access_token";
+static NSString *const kVKAutorizeResponseTokenExpirationDateParameterKey = @"expires_in";
+static NSString *const kVKAutorizeResponseVkontakteUserIDParameterKey = @"user_id";
+static NSString *const kVKAutorizeResponseErrorParameterKey = @"error";
 
 @interface AFVkontakteLoginViewController ()<UIWebViewDelegate>
 
@@ -55,6 +61,21 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark - Helpers
+
+- (NSDate *)authTokenExpirationDateFromUnixTimeString:(NSString *)authTokenExpirationUnixTimeString
+{
+    if(authTokenExpirationUnixTimeString)
+    {
+        NSInteger unixTime = authTokenExpirationUnixTimeString.integerValue;
+        return [NSDate dateWithTimeIntervalSinceNow: unixTime];
+    }
+    else
+    {
+        return nil;
+    }
+}
+
 #pragma mark - Authorization
 
 - (void)loadLoginPage
@@ -62,9 +83,29 @@
     [self.webView loadRequest:[NSURLRequest requestWithURL: self.loginPageURL]];
 }
 
-- (void)webViewDidFinishLoadWithResponseString:(NSString *)webViewResponseString
+- (void)parseWebViewResponseString:(NSString *)webViewResponseString withCompletionCallback:(void (^)(NSString *authToken, NSString *authorizedUserVkontakteID, NSString *authTokenExpirationUnixTimeString, NSError *error))completion
 {
-    AFVkontakteMethodNotImplemented();
+
+    NSParameterAssert(webViewResponseString);
+    
+    if([webViewResponseString rangeOfString: kVKAutorizeResponseErrorParameterKey].location != NSNotFound)
+    {
+        
+        
+        
+    }
+    else
+    {
+        
+        NSString *authToken = [webViewResponseString stringBetweenSubstring:[NSString stringWithFormat:@"%@=", kVKAutorizeResponseAuthTokenParameterKey]
+                                                               andSubstring:@"&"];
+        NSString *authTokenExpirationUnixTimeString = [webViewResponseString stringBetweenSubstring:[NSString stringWithFormat:@"%@=", kVKAutorizeResponseTokenExpirationDateParameterKey]
+                                                                                       andSubstring:@"&"];
+        NSString *vkontakteUserID = [webViewResponseString stringBetweenSubstring:[NSString stringWithFormat:@"%@=", kVKAutorizeResponseVkontakteUserIDParameterKey]
+                                                                     andSubstring:@""];
+        
+        AFVKONTAKTE_BLOCK_SAFE_RUN(completion, authToken, vkontakteUserID, authTokenExpirationUnixTimeString, nil);
+    }
 }
 
 #pragma mark - UIWebViewDelegate
@@ -77,7 +118,9 @@
 - (void)webViewDidFinishLoad:(UIWebView *)webView
 {
     NSString *webViewResponseString = webView.request.URL.absoluteString;
-    [self webViewDidFinishLoadWithResponseString: webViewResponseString];
+    [self parseWebViewResponseString:webViewResponseString withCompletionCallback:^(NSString *authToken, NSString *authorizedUserVkontakteID, NSString *authTokenExpirationUnixTimeString, NSError *error) {
+        //TODO:
+    }];
 }
 
 #pragma mark - UI

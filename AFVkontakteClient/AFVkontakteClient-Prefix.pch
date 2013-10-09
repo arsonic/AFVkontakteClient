@@ -10,6 +10,8 @@
 #warning "This project uses features only available in iOS SDK 3.0 and later."
 #endif
 
+#define AFVKONTAKTE_BLOCK_SAFE_RUN(block, ...) block ? block(__VA_ARGS__) : nil
+
 #define AFVkontakteMethodNotImplemented() @throw [NSException exceptionWithName:NSInvalidArgumentException reason:[NSString stringWithFormat:@"You must implement %@", NSStringFromSelector(_cmd)] userInfo:nil]
 
 #ifdef __OBJC__
