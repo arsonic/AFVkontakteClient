@@ -16,8 +16,19 @@
     NSParameterAssert(substringA);
     NSParameterAssert(substringB);
     
-    NSString *expressionPattern = [NSString stringWithFormat:@"%@(\\w+?)%@", substringA, substringB];
-    return [[[NSRegularExpression regularExpressionWithPattern:expressionPattern options:NSRegularExpressionCaseInsensitive error:nil] matchesSubsctringsInString:self options:0 range:NSMakeRange(0, self.length)] lastObject];
+    if(substringA.length == 0)
+    {
+        return [[self componentsSeparatedByString:substringB] firstObject];
+    }
+    else if(substringB.length == 0)
+    {
+        return [[self componentsSeparatedByString:substringA] lastObject];
+    }
+    else
+    {
+        NSString *expressionPattern = [NSString stringWithFormat:@"%@(\\w+?)%@", substringA, substringB];
+        return [[[NSRegularExpression regularExpressionWithPattern:expressionPattern options:NSRegularExpressionCaseInsensitive error:nil] matchesSubsctringsInString:self options:0 range:NSMakeRange(0, self.length)] lastObject];
+    }
 }
 
 @end

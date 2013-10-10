@@ -11,9 +11,9 @@
 @interface NSString (AFVkontakteClientAdditions)
 
 /*! Method to find substring in string between two substrings
- * \param substringA Left boundary substring
- * \param substringA Right bou ndary substring
- * \return String between two substrings
+ * @param substringA Left boundary substring. Zero length means that left boundary is at the start ot the string
+ * @param substringB Right boundary substring. Zero length means that right boundary is at the end ot the string
+ * @return String between two substrings
  */
 - (NSString *)stringBetweenSubstring:(NSString *)substringA andSubstring:(NSString *)substringB;
 
