@@ -28,6 +28,8 @@
 		FA2850A11804A79E001D0BBB /* NSRegularExpression+AFVkontakteClientAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = FA2850A01804A79E001D0BBB /* NSRegularExpression+AFVkontakteClientAdditions.m */; };
 		FA2850A31804A861001D0BBB /* NSStringExpressionAdditionsSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = FA2850A21804A861001D0BBB /* NSStringExpressionAdditionsSpec.m */; };
 		FA2850A61804A9F4001D0BBB /* NSString+AFVkontakteClientAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = FA2850A51804A9F4001D0BBB /* NSString+AFVkontakteClientAdditions.m */; };
+		FAA4EDEF1807370500E687E6 /* NSError+AFVkontakteClient.m in Sources */ = {isa = PBXBuildFile; fileRef = FAA4EDEE1807370500E687E6 /* NSError+AFVkontakteClient.m */; };
+		FAA4EDF11807381B00E687E6 /* NSErrorAFVkontakteClientSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = FAA4EDF01807381B00E687E6 /* NSErrorAFVkontakteClientSpec.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +75,9 @@
 		FA2850A21804A861001D0BBB /* NSStringExpressionAdditionsSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSStringExpressionAdditionsSpec.m; sourceTree = "<group>"; };
 		FA2850A41804A9F4001D0BBB /* NSString+AFVkontakteClientAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+AFVkontakteClientAdditions.h"; sourceTree = "<group>"; };
 		FA2850A51804A9F4001D0BBB /* NSString+AFVkontakteClientAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+AFVkontakteClientAdditions.m"; sourceTree = "<group>"; };
+		FAA4EDED1807370500E687E6 /* NSError+AFVkontakteClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSError+AFVkontakteClient.h"; sourceTree = "<group>"; };
+		FAA4EDEE1807370500E687E6 /* NSError+AFVkontakteClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSError+AFVkontakteClient.m"; sourceTree = "<group>"; };
+		FAA4EDF01807381B00E687E6 /* NSErrorAFVkontakteClientSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSErrorAFVkontakteClientSpec.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -166,6 +171,7 @@
 				FA2850A21804A861001D0BBB /* NSStringExpressionAdditionsSpec.m */,
 				2DB7BB4F1804BB2000C592B7 /* AFVkontakteClientSpec.m */,
 				FA10BCD71805F06F00E994F2 /* AFVkontakteLoginViewControllerSpec.m */,
+				FAA4EDF01807381B00E687E6 /* NSErrorAFVkontakteClientSpec.m */,
 			);
 			path = AFVkontakteClientTests;
 			sourceTree = "<group>";
@@ -182,6 +188,7 @@
 		FA28509318034640001D0BBB /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				FAA4EDEC180736F200E687E6 /* Models */,
 				FA28509718049408001D0BBB /* Authorization */,
 				FA28509418034676001D0BBB /* AFVkontakteClient.h */,
 				FA28509518034676001D0BBB /* AFVkontakteClient.m */,
@@ -209,6 +216,15 @@
 				FA2850A51804A9F4001D0BBB /* NSString+AFVkontakteClientAdditions.m */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		FAA4EDEC180736F200E687E6 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				FAA4EDED1807370500E687E6 /* NSError+AFVkontakteClient.h */,
+				FAA4EDEE1807370500E687E6 /* NSError+AFVkontakteClient.m */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -374,6 +390,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA28509618034676001D0BBB /* AFVkontakteClient.m in Sources */,
+				FAA4EDEF1807370500E687E6 /* NSError+AFVkontakteClient.m in Sources */,
 				FA2850A11804A79E001D0BBB /* NSRegularExpression+AFVkontakteClientAdditions.m in Sources */,
 				FA2850A61804A9F4001D0BBB /* NSString+AFVkontakteClientAdditions.m in Sources */,
 				2DAD8BFE18033EF500378931 /* AFVAppDelegate.m in Sources */,
@@ -387,6 +404,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FAA4EDF11807381B00E687E6 /* NSErrorAFVkontakteClientSpec.m in Sources */,
 				FA2850A31804A861001D0BBB /* NSStringExpressionAdditionsSpec.m in Sources */,
 				2DB7BB501804BB2000C592B7 /* AFVkontakteClientSpec.m in Sources */,
 				FA10BCD81805F06F00E994F2 /* AFVkontakteLoginViewControllerSpec.m in Sources */,

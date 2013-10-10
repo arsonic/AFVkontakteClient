@@ -10,6 +10,7 @@
 
 #import "UIViewController+AFVkontakteClientAdditions.h"
 #import "NSString+AFVkontakteClientAdditions.h"
+#import "NSError+AFVkontakteClient.h"
 
 static NSString *const kVKAutorizeResponseAuthTokenParameterKey = @"access_token";
 static NSString *const kVKAutorizeResponseTokenExpirationDateParameterKey = @"expires_in";
@@ -90,21 +91,19 @@ static NSString *const kVKAutorizeResponseErrorParameterKey = @"error";
     
     if([webViewResponseString rangeOfString: kVKAutorizeResponseErrorParameterKey].location != NSNotFound)
     {
-        
-        
-        
+        AFVKONTAKTE_BLOCK_SAFE_RUN(completion, nil, nil, nil, [NSError AFVK_authenticationError]);
     }
     else
     {
-        
         NSString *authToken = [webViewResponseString stringBetweenSubstring:[NSString stringWithFormat:@"%@=", kVKAutorizeResponseAuthTokenParameterKey]
                                                                andSubstring:@"&"];
         NSString *authTokenExpirationUnixTimeString = [webViewResponseString stringBetweenSubstring:[NSString stringWithFormat:@"%@=", kVKAutorizeResponseTokenExpirationDateParameterKey]
                                                                                        andSubstring:@"&"];
         NSString *vkontakteUserID = [webViewResponseString stringBetweenSubstring:[NSString stringWithFormat:@"%@=", kVKAutorizeResponseVkontakteUserIDParameterKey]
                                                                      andSubstring:@""];
-        
-        AFVKONTAKTE_BLOCK_SAFE_RUN(completion, authToken, vkontakteUserID, authTokenExpirationUnixTimeString, nil);
+        NSError *error = (!authToken || !authTokenExpirationUnixTimeString || !vkontakteUserID) ? [NSError AFVK_authenticationError] : nil;
+
+        AFVKONTAKTE_BLOCK_SAFE_RUN(completion, authToken, vkontakteUserID, authTokenExpirationUnixTimeString, error);
     }
 }
 
@@ -118,8 +117,16 @@ static NSString *const kVKAutorizeResponseErrorParameterKey = @"error";
 - (void)webViewDidFinishLoad:(UIWebView *)webView
 {
     NSString *webViewResponseString = webView.request.URL.absoluteString;
-    [self parseWebViewResponseString:webViewResponseString withCompletionCallback:^(NSString *authToken, NSString *authorizedUserVkontakteID, NSString *authTokenExpirationUnixTimeString, NSError *error) {
-        //TODO:
+    [self parseWebViewResponseString:webViewResponseString withCompletionCallback:^(NSString *authToken, NSString *authorizedUserVkontakteID, NSString *authTokenExpirationUnixTimeString, NSError *error)
+    {
+        if(!error)
+        {
+            AFVKONTAKTE_BLOCK_SAFE_RUN(self.authorizationCallback, authToken, authorizedUserVkontakteID, [self authTokenExpirationDateFromUnixTimeString: authTokenExpirationUnixTimeString], nil);
+        }
+        else
+        {
+            //TODO
+        }
     }];
 }
 
