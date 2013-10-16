@@ -12,6 +12,7 @@
 #import "NSString+AFVkontakteClientAdditions.h"
 #import "NSError+AFVkontakteClient.h"
 
+static NSString *const kVKAutorizeResponsePath = @"http://oauth.vk.com/blank.html";
 static NSString *const kVKAutorizeResponseAuthTokenParameterKey = @"access_token";
 static NSString *const kVKAutorizeResponseTokenExpirationDateParameterKey = @"expires_in";
 static NSString *const kVKAutorizeResponseVkontakteUserIDParameterKey = @"user_id";
@@ -57,6 +58,7 @@ static NSString *const kVKAutorizeResponseErrorParameterKey = @"error";
     
     [self addCloseButton];
     [self addWebView];
+    [self loadLoginPage];
 }
 
 - (void)didReceiveMemoryWarning
@@ -80,6 +82,8 @@ static NSString *const kVKAutorizeResponseErrorParameterKey = @"error";
     }
 }
 
+
+
 #pragma mark - Authorization
 
 - (void)loadLoginPage
@@ -96,7 +100,7 @@ static NSString *const kVKAutorizeResponseErrorParameterKey = @"error";
     {
         AFVKONTAKTE_BLOCK_SAFE_RUN(completion, nil, nil, nil, [NSError AFVK_authenticationError]);
     }
-    else
+    else if([webViewResponseString rangeOfString: kVKAutorizeResponsePath].location != NSNotFound)
     {
         NSString *authToken = [webViewResponseString stringBetweenSubstring:[NSString stringWithFormat:@"%@=", kVKAutorizeResponseAuthTokenParameterKey]
                                                                andSubstring:@"&"];
@@ -114,7 +118,8 @@ static NSString *const kVKAutorizeResponseErrorParameterKey = @"error";
 
 - (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error
 {
-    AFVkontakteMethodNotImplemented();
+    AFVKONTAKTE_BLOCK_SAFE_RUN(self.authorizationCallback, nil, nil, nil, [NSError AFVK_authenticationError]);
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView
@@ -128,8 +133,9 @@ static NSString *const kVKAutorizeResponseErrorParameterKey = @"error";
         }
         else
         {
-            //TODO
+            AFVKONTAKTE_BLOCK_SAFE_RUN(self.authorizationCallback, nil, nil, nil, error);
         }
+        [self dismissViewControllerAnimated:YES completion:nil];
     }];
 }
 

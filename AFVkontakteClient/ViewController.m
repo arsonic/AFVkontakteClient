@@ -39,10 +39,13 @@
 
 #pragma mark - Actions
 
-- (void)loginButtonClicked:(id)sender{
+- (IBAction)loginButtonClicked:(id)sender{
     
-    [AFVkontakteLoginViewController showWithLoginPageURL:[NSURL URLWithString:@""] withAuthorizationCallback:^(NSString *authToken, NSString *authorizedUserVkontakteID, NSDate *authTokenExpirationDate, NSError *error) {
-        
+    NSString *authLink = [NSString stringWithFormat:@"http://oauth.vk.com/oauth/authorize?client_id=%@&scope=%@&redirect_uri=https://oauth.vk.com/blank.html&display=touch&response_type=token", @"3694721", [@[@"wall"] componentsJoinedByString:@","]];
+    NSURL *url = [NSURL URLWithString:authLink];
+    
+    [AFVkontakteLoginViewController showWithLoginPageURL:url withAuthorizationCallback:^(NSString *authToken, NSString *authorizedUserVkontakteID, NSDate *authTokenExpirationDate, NSError *error) {
+        NSLog(@"%@ %@ %@ %@", authToken, authorizedUserVkontakteID, authTokenExpirationDate, error);
     }];
 }
 

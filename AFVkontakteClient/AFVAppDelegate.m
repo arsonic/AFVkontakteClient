@@ -7,6 +7,7 @@
 //
 
 #import "AFVAppDelegate.h"
+#import "ViewController.h"
 
 @implementation AFVAppDelegate
 
@@ -17,7 +18,8 @@
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     
-    
+    ViewController *vc = [ViewController new];
+    self.window.rootViewController = vc;
     
     return YES;
 }
