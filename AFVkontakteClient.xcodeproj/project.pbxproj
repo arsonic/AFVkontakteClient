@@ -22,6 +22,8 @@
 		2DB7BB501804BB2000C592B7 /* AFVkontakteClientSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DB7BB4F1804BB2000C592B7 /* AFVkontakteClientSpec.m */; };
 		4B91C38CBC394BE8B4EFEFDF /* libPods-AFVkontakteClientTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 024B4BA2DF254F2DBE84679F /* libPods-AFVkontakteClientTests.a */; };
 		FA10BCD81805F06F00E994F2 /* AFVkontakteLoginViewControllerSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = FA10BCD71805F06F00E994F2 /* AFVkontakteLoginViewControllerSpec.m */; };
+		FA156B10180F145A00E02C32 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA156B0E180F145A00E02C32 /* ViewController.m */; };
+		FA156B11180F145A00E02C32 /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA156B0F180F145A00E02C32 /* ViewController.xib */; };
 		FA28509618034676001D0BBB /* AFVkontakteClient.m in Sources */ = {isa = PBXBuildFile; fileRef = FA28509518034676001D0BBB /* AFVkontakteClient.m */; };
 		FA28509A18049496001D0BBB /* AFVkontakteLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA28509918049496001D0BBB /* AFVkontakteLoginViewController.m */; };
 		FA28509E18049FE0001D0BBB /* UIViewController+AFVkontakteClientAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = FA28509D18049FE0001D0BBB /* UIViewController+AFVkontakteClientAdditions.m */; };
@@ -64,6 +66,9 @@
 		CC0D7285562C4933AECD490B /* Pods-AFVkontakteClientTests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AFVkontakteClientTests.xcconfig"; path = "Pods/Pods-AFVkontakteClientTests.xcconfig"; sourceTree = "<group>"; };
 		CD61CF5EA6AA4DC185D648D2 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		FA10BCD71805F06F00E994F2 /* AFVkontakteLoginViewControllerSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFVkontakteLoginViewControllerSpec.m; sourceTree = "<group>"; };
+		FA156B0D180F145A00E02C32 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		FA156B0E180F145A00E02C32 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		FA156B0F180F145A00E02C32 /* ViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ViewController.xib; sourceTree = "<group>"; };
 		FA28509418034676001D0BBB /* AFVkontakteClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFVkontakteClient.h; sourceTree = "<group>"; };
 		FA28509518034676001D0BBB /* AFVkontakteClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFVkontakteClient.m; sourceTree = "<group>"; };
 		FA28509818049496001D0BBB /* AFVkontakteLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFVkontakteLoginViewController.h; sourceTree = "<group>"; };
@@ -149,6 +154,9 @@
 				2DAD8BFD18033EF500378931 /* AFVAppDelegate.m */,
 				2DAD8BFF18033EF500378931 /* Images.xcassets */,
 				2DAD8BF418033EF500378931 /* Supporting Files */,
+				FA156B0D180F145A00E02C32 /* ViewController.h */,
+				FA156B0E180F145A00E02C32 /* ViewController.m */,
+				FA156B0F180F145A00E02C32 /* ViewController.xib */,
 			);
 			path = AFVkontakteClient;
 			sourceTree = "<group>";
@@ -307,6 +315,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2DAD8BF818033EF500378931 /* InfoPlist.strings in Resources */,
+				FA156B11180F145A00E02C32 /* ViewController.xib in Resources */,
 				2DAD8C0018033EF500378931 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -389,6 +398,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA156B10180F145A00E02C32 /* ViewController.m in Sources */,
 				FA28509618034676001D0BBB /* AFVkontakteClient.m in Sources */,
 				FAA4EDEF1807370500E687E6 /* NSError+AFVkontakteClient.m in Sources */,
 				FA2850A11804A79E001D0BBB /* NSRegularExpression+AFVkontakteClientAdditions.m in Sources */,

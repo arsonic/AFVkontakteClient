@@ -10,6 +10,13 @@
 
 static NSString *const kVKBaseURLString = @"https://api.vk.com/method";
 
+@interface AFVkontakteClient()
+
+@property (nonatomic, strong, readwrite) NSString *appID;
+@property (nonatomic, strong, readwrite) NSArray *permissions;
+
+@end
+
 @implementation AFVkontakteClient
 
 /*****************************************************/
@@ -26,11 +33,37 @@ static AFVkontakteClient *sharedInstance;
     return sharedInstance;
 }
 
+- (id)initWithBaseURL:(NSURL *)url
+{
+    NSAssert(NO, @"%@ must be initialized using -initWithVkontakteAppID:withPermissions:", self.class);
+	return nil;
+}
+
+- (id)initWithVkontakteAppID:(NSString *)appID withPermissions:(NSArray *)permissions
+{
+    NSParameterAssert(appID);
+        
+    if(self = [super initWithBaseURL:[NSURL URLWithString:kVKBaseURLString]]){
+        
+        self.appID = appID;
+        self.permissions = permissions ? permissions : [AFVkontakteClient defaultPermissions];
+    }
+    return self;
+}
+
 - (id)init{
     if(self = [super initWithBaseURL:[NSURL URLWithString:kVKBaseURLString]]){
         //TODO: the rest of the auth process
     }
     return self;
 }
+
+#pragma mark - Properties
+
++ (NSArray *)defaultPermissions
+{
+    return @[@"wall"];
+}
+
 
 @end

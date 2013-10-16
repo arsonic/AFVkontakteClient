@@ -38,6 +38,9 @@ static NSString *const kVKAutorizeResponseErrorParameterKey = @"error";
 
 - (id)initWithLoginPageURL:(NSURL *)loginPageURL withAuthorizationCallback:(AFVkontakteAuthBlock)authorizationCallback
 {
+    NSParameterAssert(loginPageURL);
+    NSParameterAssert(authorizationCallback);
+    
     if(self = [super init]){
         self.loginPageURL = loginPageURL;
         self.authorizationCallback = authorizationCallback;
